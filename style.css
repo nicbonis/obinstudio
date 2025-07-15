@@ -108,7 +108,7 @@ nav .nav-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1;
+    z-index: 2; /* <-- AGGIUNGI QUESTO */
 }
 .hero-image-container img {
     width: 80%;
@@ -269,6 +269,5 @@ footer p { font-size: 14px; color: var(--text-color-light); }
 @media screen and (max-width: 768px) {
     .logo { display: none; }
     nav { justify-content: flex-end; }
-    .hero-image-container { display: none; } /* Nascondiamo il logo viola su schermi molto piccoli */
     .list-container { grid-template-columns: 1fr; }
 }
