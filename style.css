@@ -245,14 +245,13 @@ footer p { font-size: 14px; color: var(--text-color-light); }
 
 /* --- 9. MEDIA QUERIES --- */
 @media screen and (max-width: 992px) {
-    nav { padding: 20px; }
-    .nav-wrapper { padding: 0 20px; width: 100%;}
     #menu-icon { display: block; }
     .nav-links {
         position: fixed; top: 0; left: -100%;
         width: 100%; height: 100vh;
         background-color: var(--bg-color);
         flex-direction: column; justify-content: center;
+        align-items: center; /* Aggiunto per centrare meglio i link */
         gap: 40px; transition: left 0.4s ease;
         z-index: 999;
     }
@@ -260,14 +259,64 @@ footer p { font-size: 14px; color: var(--text-color-light); }
     .nav-links a { font-size: 24px; }
     .hero { flex-direction: column-reverse; text-align: center; }
     .hero-content h1 { font-size: 42px; }
-    /* RIMOSSA la riga che nascondeva il logo su mobile */
-    .body::before { display: none; } /* Nasconde lo sfondo globale su mobile per pulizia */
+
+    /* **LA CORREZIONE FONDAMENTALE** */
+    body::before { display: none; } /* Nasconde lo sfondo globale su mobile per pulizia */
+    
     section { padding: 80px 0; }
     .about-container, .about-container:nth-child(even) { flex-direction: column; text-align: center; }
     .about-container .about p { text-align: center; }
 }
 @media screen and (max-width: 768px) {
     .logo { display: none; }
-    nav { justify-content: flex-end; }
+    /* La regola 'justify-content' non è più necessaria qui perché il logo è nascosto */
     .list-container { grid-template-columns: 1fr; }
+}
+
+/* --- Stili Aggiuntivi per CTA nel Footer --- */
+
+.cta-footer {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #fff; /* Sfondo bianco per farlo risaltare */
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 0 auto 60px auto; /* Centra e dà spazio sotto */
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+.cta-footer h2 {
+    font-size: 32px;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.cta-footer p {
+    font-size: 16px;
+    color: var(--text-color-light);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+/* Adatta lo stile del pulsante esistente per questo contesto */
+.cta-footer .main-button {
+    transform: scale(1.05); /* Un po' più grande per attirare l'attenzione */
+}
+
+/* Modifica il footer per accogliere il container */
+footer {
+    padding: 60px 0 40px 0; /* Riduciamo il padding inferiore */
+    background-color: var(--dark-color);
+    color: var(--bg-color);
+    text-align: center;
+}
+
+.footer-bottom {
+    /* Questa classe ora contiene i social e il copyright */
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
