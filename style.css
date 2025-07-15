@@ -26,19 +26,19 @@ body {
     position: relative; /* Necessario per posizionare lo sfondo globale */
 }
 
-/* NUOVO: Sfondo con logo applicato a tutta la pagina */
+/* Sfondo con logo applicato a tutta la pagina */
 body::before {
     content: '';
     position: fixed; /* Rimane fermo durante lo scroll */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 3000px; /* Grandezza del logo */
-    height: 3000px;
+    width: 1200px; /* Grandezza del logo di sfondo */
+    height: 1200px;
     background: url('immagini/logo.png') no-repeat center center;
     background-size: contain;
     filter: grayscale(100%);
-    opacity: 0.03; /* Ancora più leggero */
+    opacity: 0.03; /* Leggerissimo */
     z-index: -1; /* Sta dietro a TUTTO */
 }
 
@@ -75,9 +75,8 @@ nav .nav-wrapper {
     min-height: 90vh;
     display: flex;
     align-items: center;
-    /* RIMOSSO: position:relative e overflow:hidden da qui */
 }
-.hero-content { flex: 1; max-width: 600px; }
+.hero-content { flex: 1; max-width: 600px; z-index: 1; }
 .hero-content h1 {
     font-size: 56px;
     font-weight: 700;
@@ -109,14 +108,13 @@ nav .nav-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 .hero-image-container img {
     width: 80%;
     max-width: 400px;
     object-fit: contain;
 }
-
-/* CANCELLATO: La regola .hero-image-container::after è stata rimossa */
 
 /* --- 5. SEZIONI GENERICHE E CARD --- */
 section { padding: 100px 0; }
@@ -262,8 +260,8 @@ footer p { font-size: 14px; color: var(--text-color-light); }
     .nav-links a { font-size: 24px; }
     .hero { flex-direction: column-reverse; text-align: center; }
     .hero-content h1 { font-size: 42px; }
-    .hero-image-container { display: none; }
-    .hero::after { display: none; }
+    /* RIMOSSA la riga che nascondeva il logo su mobile */
+    .body::before { display: none; } /* Nasconde lo sfondo globale su mobile per pulizia */
     section { padding: 80px 0; }
     .about-container, .about-container:nth-child(even) { flex-direction: column; text-align: center; }
     .about-container .about p { text-align: center; }
@@ -271,5 +269,6 @@ footer p { font-size: 14px; color: var(--text-color-light); }
 @media screen and (max-width: 768px) {
     .logo { display: none; }
     nav { justify-content: flex-end; }
+    .hero-image-container { display: none; } /* Nascondiamo il logo viola su schermi molto piccoli */
     .list-container { grid-template-columns: 1fr; }
 }
