@@ -1,139 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="it"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>Blog Page | Obin Studio</title>
+    <title>Blog | Obin Studio</title>
 </head>
 
 <body>
 
-    <nav>
-        <div class="logo">
-            <img src="immagini/logo.png">
-            <a href="#">Obin Studio</a>
-        </div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="works.html">Works</a>
-            <a class="selected" href="blog.html">Blog</a>
-            <a href="about.html">About us</a>
-        </div>
-    </nav>
-
-
-    <h1 class="page-title">Blog</h1>
-
-<div class="content">
-    <div class="post-list">
-
-        <div class="post-item">
-            <h3>Design per Eventi e Occasioni Speciali</h3>
-            <div class="info">
-                <h5>8 Lug 2025</h5>
-                <h5>|</h5>
-                <h5>Graphic Design, Branding, Visual Identity</h5>
-            </div>
-            <p>Creiamo un'identità visiva coordinata e d'impatto per i tuoi eventi. Dagli inviti digitali al materiale promozionale, garantiamo che ogni dettaglio grafico contribuisca a rendere la tua occasione memorabile.</p>
-            <div class="buttons">
-                <i class='bx bx-share'></i>
-                <i class='bx bx-link-alt'></i>
-                <i class='bx bx-copy'></i>
-                <i class='bx bx-bookmark-plus'></i>
-                <button>Scopri di più</button>
-            </div>
-        </div>
-
-        <div class="post-item">
-            <h3>Gestione Social Media Strategica</h3>
-            <div class="info">
-                <h5>8 Lug 2025</h5>
-                <h5>|</h5>
-                <h5>Social Media, Content Creation, Advertising</h5>
-            </div>
-            <p>Sviluppiamo e gestiamo la tua presenza online per costruire una community forte e fedele. Dalla creazione di contenuti alla gestione delle campagne pubblicitarie, trasformiamo i tuoi follower in clienti.</p>
-            <div class="buttons">
-                <i class='bx bx-share'></i>
-                <i class='bx bx-link-alt'></i>
-                <i class='bx bx-copy'></i>
-                <i class='bx bx-bookmark-plus'></i>
-                <button>Scopri di più</button>
-            </div>
-        </div>
-
-        <div class="post-item">
-            <h3>Sviluppo Siti Web Performanti e SEO-Ready</h3>
-            <div class="info">
-                <h5>8 Lug 2025</h5>
-                <h5>|</h5>
-                <h5>Web Development, UI/UX Design, SEO</h5>
-            </div>
-            <p>Realizziamo siti web veloci, intuitivi e ottimizzati per i motori di ricerca. Il nostro approccio unisce un design accattivante a una performance tecnica impeccabile per convertire i visitatori in clienti.</p>
-            <div class="buttons">
-                <i class='bx bx-share'></i>
-                <i class='bx bx-link-alt'></i>
-                <i class='bx bx-copy'></i>
-                <i class='bx bx-bookmark-plus'></i>
-                <button>Scopri di più</button>
-            </div>
-        </div>
-        
-        <div class="post-item">
-            <h3>Consulenza Strategica e Brand Identity</h3>
-            <div class="info">
-                <h5>8 Lug 2025</h5>
-                <h5>|</h5>
-                <h5>Branding, Strategy, Startup, Consulting</h5>
-            </div>
-            <p>Aiutiamo startup e nuove idee a trovare la loro voce e identità visiva. Partendo da zero, costruiamo le fondamenta solide del tuo brand per garantire una crescita sostenibile e un posizionamento chiaro sul mercato.</p>
-            <div class="buttons">
-                <i class='bx bx-share'></i>
-                <i class='bx bx-link-alt'></i>
-                <i class='bx bx-copy'></i>
-                <i class='bx bx-bookmark-plus'></i>
-                <button>Scopri di più</button>
-            </div>
-        </div>
-
-        <div class="post-item">
-            <h3>Editing Video e Contenuti Multimediali</h3>
-            <div class="info">
-                <h5>8 Lug 2025</h5>
-                <h5>|</h5>
-                <h5>Video Editing, Motion Graphics, Reels & TikTok</h5>
-            </div>
-            <p>Produciamo e montiamo contenuti video dinamici pensati per catturare l'attenzione sui social media. Dai Reels coinvolgenti ai video corporate professionali, diamo vita alla tua comunicazione in modo multimediale.</p>
-            <div class="buttons">
-                <i class='bx bx-share'></i>
-                <i class='bx bx-link-alt'></i>
-                <i class='bx bx-copy'></i>
-                <i class='bx bx-bookmark-plus'></i>
-                <button>Scopri di più</button>
-            </div>
-        </div>
-
+<nav>
+    <div class="logo">
+        <img src="immagini/logo.png" alt="Logo di Obin Studio">
+        <a href="index.html">Obin Studio</a>
     </div>
-</div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="works.html">Lavori</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">Chi Siamo</a>
+    </div>
+    
+    <i class='bx bx-menu' id="menu-icon"></i>
+</nav>
+
+    <main>
+        <h1 class="page-title">Blog</h1>
+
+        <div class="content">
+            <div class="post-list">
+                
+                <a href="#" class="post-item-link">
+                    <article class="post-item">
+                        <h3>Design per Eventi e Occasioni Speciali</h3>
+                        <div class="info">
+                            <h5>8 Lug 2025</h5>
+                            <span>|</span>
+                            <h5>Graphic Design, Branding</h5>
+                        </div>
+                        <p>Creiamo un'identità visiva coordinata e d'impatto per i tuoi eventi. Dagli inviti digitali al materiale promozionale, garantiamo che ogni dettaglio grafico contribuisca a rendere la tua occasione memorabile.</p>
+                        <div class="buttons">
+                            <i class='bx bx-share' title="Condividi"></i>
+                            <i class='bx bx-bookmark-plus' title="Salva"></i>
+                            <span class="button-card">Leggi di più</span>
+                        </div>
+                    </article>
+                </a>
+                
+                <a href="#" class="post-item-link">
+                    <article class="post-item">
+                        <h3>Gestione Social Media Strategica</h3>
+                        <div class="info">
+                            <h5>8 Lug 2025</h5>
+                            <span>|</span>
+                            <h5>Social Media, Content Creation</h5>
+                        </div>
+                        <p>Sviluppiamo e gestiamo la tua presenza online per costruire una community forte e fedele. Dalla creazione di contenuti alla gestione delle campagne pubblicitarie, trasformiamo i tuoi follower in clienti.</p>
+                         <div class="buttons">
+                            <i class='bx bx-share' title="Condividi"></i>
+                            <i class='bx bx-bookmark-plus' title="Salva"></i>
+                            <span class="button-card">Leggi di più</span>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#" class="post-item-link">
+                    <article class="post-item">
+                        <h3>Sviluppo Siti Web Performanti e SEO-Ready</h3>
+                        <div class="info">
+                            <h5>8 Lug 2025</h5>
+                            <span>|</span>
+                            <h5>Web Development, UI/UX, SEO</h5>
+                        </div>
+                        <p>Realizziamo siti web veloci, intuitivi e ottimizzati per i motori di ricerca. Il nostro approccio unisce un design accattivante a una performance tecnica impeccabile per convertire i visitatori in clienti.</p>
+                         <div class="buttons">
+                            <i class='bx bx-share' title="Condividi"></i>
+                            <i class='bx bx-bookmark-plus' title="Salva"></i>
+                            <span class="button-card">Leggi di più</span>
+                        </div>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </main>
 
     <footer>
         <div class="socials">
-            <a href="https://www.facebook.com/share/16sNJKXUA8/?mibextid=wwXIfr" target="_blank">
+            <a href="https://www.facebook.com/share/16sNJKXUA8/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
                 <i class='bx bxl-facebook-square'></i>
             </a>
-            <a href="https://www.instagram.com/obinstudio" target="_blank">
+            <a href="https://www.instagram.com/obinstudio" target="_blank" aria-label="Instagram">
                 <i class='bx bxl-instagram'></i>
             </a>
-            <a href="https://www.twitter.com/tuoprofilo" target="_blank">
+            <a href="https://www.twitter.com/tuoprofilo" target="_blank" aria-label="Twitter">
                 <i class='bx bxl-twitter'></i>
             </a>
         </div>
-        <p>Copyright ©2025, All rights reserved.</p>
+        <p>Copyright ©2025 Obin Studio, All rights reserved.</p>
     </footer>
+     <script src="script.js"></script>
 
-
-</body>
-
+    </body>
 </html>
