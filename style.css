@@ -215,15 +215,92 @@ section { padding: 100px 0; }
 
 /* --- 7. FOOTER E UTILITIES --- */
 footer {
-    padding: 60px 0;
+    padding: 60px 20px 40px 20px; /* Aggiunto padding laterale per sicurezza */
     background-color: var(--dark-color);
     color: var(--bg-color);
     text-align: center;
 }
-.socials { display: flex; justify-content: center; gap: 30px; margin-bottom: 25px; }
-.socials i { font-size: 28px; transition: color 0.3s ease, transform 0.3s ease; }
-.socials i:hover { color: var(--primary-color); transform: scale(1.2); }
-footer p { font-size: 14px; color: var(--text-color-light); }
+
+.cta-footer {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+.cta-footer h2 {
+    font-size: 32px;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.cta-footer p {
+    font-size: 16px;
+    color: var(--text-color-light);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.cta-footer .main-button {
+    transform: scale(1.05);
+}
+
+.footer-bottom {
+    padding-top: 40px; /* Aumentato lo spazio sopra */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* NUOVE REGOLE PER LA SPAZIATURA */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Spazio uniforme di 20px tra ogni elemento (social, copyright, policy) */
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 0; /* RIMOSSO: ora lo gestisce 'gap' del genitore */
+}
+
+.socials i {
+    font-size: 28px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socials i:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Rimuovo il selettore 'footer p' per non interferire con la CTA */
+.footer-bottom p {
+    font-size: 14px;
+    color: var(--text-color-light);
+    margin: 0; /* Resetto i margini */
+}
+
+.legal-links {
+    margin-top: 0; /* RIMOSSO: ora lo gestisce 'gap' del genitore */
+    font-size: 12px;
+    display: flex; /* Aggiunto per spaziare meglio i due link */
+    gap: 15px;     /* Spazio tra "Privacy" e "Cookie" */
+}
+
+.legal-links a {
+    color: var(--text-color-light);
+    transition: color 0.2s ease;
+}
+
+.legal-links a:hover {
+    color: #fff;
+}
+
 .scroll-to-top {
     position: fixed; bottom: 30px; right: 30px;
     width: 50px; height: 50px;
@@ -232,9 +309,15 @@ footer p { font-size: 14px; color: var(--text-color-light); }
     font-size: 24px; box-shadow: var(--shadow-md);
     opacity: 0; visibility: hidden; transition: all 0.3s ease;
 }
-.scroll-to-top.visible { opacity: 1; visibility: visible; }
-.scroll-to-top:hover { transform: translateY(-5px); }
 
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+}
 /* --- 8. ANIMAZIONI --- */
 .animate-on-load { opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s ease-out forwards; }
 .delay-1 { animation-delay: 0.2s; }
