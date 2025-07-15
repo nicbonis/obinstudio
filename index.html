@@ -1,105 +1,91 @@
 <!DOCTYPE html>
-<html lang="it"> <head>
+<html lang="it">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>Obin Studio | Web Agency & Digital Design</title>
+    <title>Obin Studio | Creative Digital Agency</title>
 </head>
-
 <body>
 
-<nav>
-    <div class="logo">
-        <img src="immagini/logo.png" alt="Logo di Obin Studio">
-        <a href="index.html">Obin Studio</a>
-    </div>
+    <header class="container">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">Obin Studio</a>
+                </div>
+                <div class="nav-links">
+                    <a class="selected" href="index.html">Home</a>
+                    <a href="works.html">Lavori</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="about.html">Chi Siamo</a>
+                </div>
+                <i class='bx bx-menu' id="menu-icon"></i>
+            </div>
+        </nav>
+    </header>
 
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="works.html">Lavori</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">Chi Siamo</a>
-    </div>
-    
-    <i class='bx bx-menu' id="menu-icon"></i>
-</nav>
+    <main>
+        <section class="hero container">
+            <div class="hero-content">
+                <h1 class="animate-on-load">Trasformiamo Idee in Realtà Digitali</h1>
+                <p class="animate-on-load delay-1">Siamo una web agency creativa specializzata in design, sviluppo e strategie social per brand che vogliono crescere.</p>
+                <a href="works.html" class="main-button animate-on-load delay-2">Scopri i nostri progetti</a>
+            </div>
+            <div class="hero-image-container" id="hero-logo">
+                <img src="immagini/logo.png" alt="Logo fluttuante di Obin Studio">
+            </div>
+        </section>
 
-    <main class="main">
-        <div class="info">
-            <h1>Web Agency<br>Grafica, Social Media e Sviluppo Web</h1>
-            <p>Realizziamo progetti digitali su misura con passione e precisione. Dallo sviluppo web al design grafico, trasformiamo idee in soluzioni concrete.</p>
-            <a href="works.html" class="main-button">Scopri i nostri lavori</a>
-        </div>
-        <img src="immagini/logo.png" alt="Illustrazione astratta per Obin Studio">
+        <section class="container animate-on-scroll">
+            <div class="services-grid">
+                <div class="card">
+                    <i class='bx bx-palette'></i>
+                    <h3>Design & Branding</h3>
+                    <p>Creiamo identità visive uniche e siti web che catturano l'attenzione.</p>
+                </div>
+                <div class="card">
+                    <i class='bx bx-code-alt'></i>
+                    <h3>Sviluppo Web</h3>
+                    <p>Sviluppiamo soluzioni web performanti, responsive e su misura.</p>
+                </div>
+                <div class="card">
+                    <i class='bx bx-trending-up'></i>
+                    <h3>Social Media</h3>
+                    <p>Gestiamo la tua presenza online per creare una community forte.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container animate-on-scroll">
+            <h2 class="section-title">Lavori in Evidenza</h2>
+            <div class="list-container">
+                <a href="#" class="list-item">
+                    <img src="immagini/item-1.jpg" alt="Anteprima del progetto">
+                    <div class="details">
+                        <h3>Brand Identity per Startup</h3>
+                        <p class="info">UI/UX Design</p>
+                    </div>
+                </a>
+                <a href="#" class="list-item">
+                    <img src="immagini/item-2.jpg" alt="Anteprima del progetto">
+                    <div class="details">
+                        <h3>Sito E-commerce</h3>
+                        <p class="info">Sviluppo Web</p>
+                    </div>
+                </a>
+                <a href="#" class="list-item">
+                    <img src="immagini/item-3.jpg" alt="Anteprima del progetto">
+                    <div class="details">
+                        <h3>Campagna Social</h3>
+                        <p class="info">Marketing</p>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
-
-    <section class="recent">
-        <div class="header">
-            <h4>Post Recenti</h4>
-            <a href="blog.html">Vedi tutti</a>
-        </div>
-        <div class="posts">
-            <div class="post-item">
-                <h3>Design per Eventi e Occasioni Speciali</h3>
-                <div class="info">
-                    <h5>8 Lug 2025</h5>
-                    <span>|</span>
-                    <h5>Graphic Design, Branding</h5>
-                </div>
-                <p>Creiamo un'identità visiva coordinata e d'impatto per i tuoi eventi. Dagli inviti digitali al materiale promozionale, garantiamo che ogni dettaglio grafico contribuisca a rendere la tua occasione memorabile.</p>
-            </div>
-            <div class="post-item">
-                <h3>Gestione Social Media Strategica</h3>
-                <div class="info">
-                    <h5>8 Lug 2025</h5>
-                    <span>|</span>
-                    <h5>Social Media, Content Creation</h5>
-                </div>
-                <p>Sviluppiamo e gestiamo la tua presenza online per costruire una community forte e fedele. Dalla creazione di contenuti alla gestione delle campagne pubblicitarie, trasformiamo i tuoi follower in clienti.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="featured-works">
-        <h4 class="section-title">Lavori in Evidenza</h4>
-        <div class="works-list">
-            <div class="item">
-                <img src="immagini/item-1.jpg" alt="Anteprima del progetto Capture Screenshots">
-                <div class="details">
-                    <h3>Capture Screenshots</h3>
-                    <div class="item-info">
-                        <div class="year-badge">2023</div>
-                        <h4>JavaScript</h4>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eos ratione beatae voluptas aliquam illo maxime.</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="immagini/item-2.jpg" alt="Anteprima del progetto Designing Login Form">
-                <div class="details">
-                    <h3>Designing Login Form</h3>
-                    <div class="item-info">
-                        <div class="year-badge">2023</div>
-                        <h4>Login Design</h4>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eos ratione beatae voluptas aliquam illo maxime.</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="immagini/item-3.jpg" alt="Anteprima del progetto Music Platform UI">
-                <div class="details">
-                    <h3>Music Platform UI</h3>
-                    <div class="item-info">
-                        <div class="year-badge">2024</div>
-                        <h4>UI Design</h4>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eos ratione beatae voluptas aliquam illo maxime.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <footer>
         <div class="socials">
             <a href="https://www.facebook.com/share/16sNJKXUA8/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
@@ -115,7 +101,10 @@
         <p>Copyright ©2025 Obin Studio, All rights reserved.</p>
     </footer>
 
-     <script src="script.js"></script>
+    <a href="#" class="scroll-to-top" aria-label="Torna su">
+        <i class='bx bx-up-arrow-alt'></i>
+    </a>
 
-    </body>
+    <script src="script.js"></script>
+</body>
 </html>

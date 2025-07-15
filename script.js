@@ -1,18 +1,56 @@
-// Seleziona gli elementi dal DOM
+// --- LOGICA PER MENU HAMBURGER ---
 const menuIcon = document.getElementById('menu-icon');
 const navLinks = document.querySelector('.nav-links');
 
-// Aggiunge un evento al click sull'icona del menu
-menuIcon.addEventListener('click', () => {
-    // Aggiunge o rimuove la classe 'active' alla lista dei link
-    navLinks.classList.toggle('active');
-});
+if (menuIcon) {
+    menuIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+}
 
-// Opzionale: Chiude il menu quando si clicca su un link
-// Utile per la navigazione in pagine con sezioni (one-page scroll)
-// In questo caso, visto che cambi pagina, non è strettamente necessario, ma è buona pratica.
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
     });
 });
+
+
+// --- LOGICA PER ANIMAZIONI ON-SCROLL ---
+const animatedElements = document.querySelectorAll('.animate-on-scroll');
+if (animatedElements.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+
+// --- LOGICA LOGO FLUTTUANTE ---
+const heroLogo = document.getElementById('hero-logo');
+if (heroLogo) {
+    document.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const x = (clientX / window.innerWidth - 0.5) * -40;
+        const y = (clientY / window.innerHeight - 0.5) * -40;
+        
+        heroLogo.style.transform = `translate(${x}px, ${y}px)`;
+    });
+}
+
+// --- LOGICA PULSANTE SCROLL-TO-TOP ---
+const scrollToTopBtn = document.querySelector('.scroll-to-top');
+if (scrollToTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+}

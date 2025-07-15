@@ -1,96 +1,70 @@
 <!DOCTYPE html>
-<html lang="it"> <head>
+<html lang="it">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
     <title>I Nostri Lavori | Obin Studio</title>
 </head>
-
 <body>
 
-<nav>
-    <div class="logo">
-        <img src="immagini/logo.png" alt="Logo di Obin Studio">
-        <a href="index.html">Obin Studio</a>
-    </div>
-
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="works.html">Lavori</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">Chi Siamo</a>
-    </div>
-    
-    <i class='bx bx-menu' id="menu-icon"></i>
-</nav>
-    
-    <main>
-        <h1 class="page-title">I Nostri Lavori</h1>
-
-        <div class="content">
-            <div class="works-list">
-                
-                <a href="#" class="item-link">
-                    <article class="item">
-                        <img src="immagini/item-1.jpg" alt="Anteprima del progetto Capture Screenshots">
-                        <div class="details">
-                            <h3>Capture Screenshots</h3>
-                            <div class="item-info">
-                                <div class="year-badge">2023</div>
-                                <h4>JavaScript</h4>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eos ratione beatae voluptas aliquam illo maxime.</p>
-                        </div>
-                    </article>
-                </a>
-
-                <a href="#" class="item-link">
-                    <article class="item">
-                        <img src="immagini/item-2.jpg" alt="Anteprima del progetto Designing Login Form">
-                        <div class="details">
-                            <h3>Designing Login Form</h3>
-                            <div class="item-info">
-                                <div class="year-badge">2023</div>
-                                <h4>Login Design</h4>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eos ratione beatae voluptas aliquam illo maxime.</p>
-                        </div>
-                    </article>
-                </a>
-
-                                <a href="#" class="item-link">
-                    <article class="item">
-                        <img src="immagini/item-2.jpg" alt="Anteprima del progetto Designing Login Form">
-                        <div class="details">
-                            <h3>Designing Login Form</h3>
-                            <div class="item-info">
-                                <div class="year-badge">2023</div>
-                                <h4>Login Design</h4>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eos ratione beatae voluptas aliquam illo maxime.</p>
-                        </div>
-                    </article>
-                </a>
-
-                                <a href="#" class="item-link">
-                    <article class="item">
-                        <img src="immagini/item-2.jpg" alt="Anteprima del progetto Designing Login Form">
-                        <div class="details">
-                            <h3>Designing Login Form</h3>
-                            <div class="item-info">
-                                <div class="year-badge">2023</div>
-                                <h4>Login Design</h4>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eos ratione beatae voluptas aliquam illo maxime.</p>
-                        </div>
-                    </article>
-                </a>
-                
+    <header class="container">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="immagini/logo.png" alt="Logo di Obin Studio">
+                    <a href="index.html">Obin Studio</a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a class="selected" href="works.html">Lavori</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="about.html">Chi Siamo</a>
+                </div>
+                <i class='bx bx-menu' id="menu-icon"></i>
             </div>
+        </nav>
+    </header>
+
+    <main>
+        <header class="page-header">
+            <h1 class="page-title animate-on-load">I Nostri Lavori</h1>
+            <p class="page-subtitle animate-on-load delay-1">Una selezione dei progetti che abbiamo realizzato con passione per i nostri clienti.</p>
+        </header>
+
+        <div class="list-container container">
+            <a href="#" class="list-item animate-on-scroll">
+                <img src="immagini/item-1.jpg" alt="Anteprima del progetto">
+                <div class="details">
+                    <h3>Brand Identity per Startup</h3>
+                    <p class="info">UI/UX Design</p>
+                </div>
+            </a>
+            <a href="#" class="list-item animate-on-scroll">
+                <img src="immagini/item-2.jpg" alt="Anteprima del progetto">
+                <div class="details">
+                    <h3>Sito E-commerce</h3>
+                    <p class="info">Sviluppo Web</p>
+                </div>
+            </a>
+            <a href="#" class="list-item animate-on-scroll">
+                <img src="immagini/item-3.jpg" alt="Anteprima del progetto">
+                <div class="details">
+                    <h3>Campagna Social</h3>
+                    <p class="info">Marketing</p>
+                </div>
+            </a>
+            <a href="#" class="list-item animate-on-scroll">
+                <img src="immagini/item-4.jpg" alt="Anteprima del progetto">
+                <div class="details">
+                    <h3>Piattaforma Web App</h3>
+                    <p class="info">Sviluppo Full-Stack</p>
+                </div>
+            </a>
         </div>
     </main>
-    
+
     <footer>
         <div class="socials">
             <a href="https://www.facebook.com/share/16sNJKXUA8/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
@@ -106,7 +80,10 @@
         <p>Copyright ©2025 Obin Studio, All rights reserved.</p>
     </footer>
 
-     <script src="script.js"></script>
-
-    </body>
+    <a href="#" class="scroll-to-top" aria-label="Torna su">
+        <i class='bx bx-up-arrow-alt'></i>
+    </a>
+    
+    <script src="script.js"></script>
+</body>
 </html>
