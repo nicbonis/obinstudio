@@ -432,3 +432,49 @@ footer {
     padding: 16px; /* Un po' più grande per importanza */
     font-size: 18px;
 }
+
+/* Stili per le card dei fondatori */
+.founder-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.founder-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    border: 4px solid var(--primary-color);
+}
+.founder-card h3 {
+    font-size: 24px;
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+.founder-card h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.founder-card p {
+    color: var(--text-color-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Fa in modo che il testo occupi lo spazio disponibile */
+}
+.founder-card .email a {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+/* --- Stili aggiuntivi per pagina Chi Siamo --- */
+.founders-section {
+    padding-bottom: 100px; /* Aumenta lo spazio tra la sezione fondatori e il footer */
+}
