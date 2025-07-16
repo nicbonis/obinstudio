@@ -23,29 +23,29 @@ body {
     font-family: var(--font-main);
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
-    position: relative; /* Necessario per posizionare lo sfondo globale */
+    position: relative;
 }
 
 /* Sfondo con logo applicato a tutta la pagina */
 body::before {
     content: '';
-    position: fixed; /* Rimane fermo durante lo scroll */
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1200px; /* Grandezza del logo di sfondo */
+    width: 1200px;
     height: 1200px;
     background: url('immagini/logo.png') no-repeat center center;
     background-size: contain;
     filter: grayscale(100%);
-    opacity: 0.03; /* Leggerissimo */
-    z-index: -1; /* Sta dietro a TUTTO */
+    opacity: 0.03;
+    z-index: -1;
 }
-
 
 a { text-decoration: none; color: inherit; }
 img { width: 100%; display: block; }
 .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
 
 /* --- 3. NAVBAR --- */
 nav {
@@ -57,18 +57,44 @@ nav {
     top: 0;
     z-index: 1000;
 }
+
+/* MODIFICATO: Aggiunto position: relative per il centraggio assoluto dei link */
 nav .nav-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    position: relative; /* Fondamentale per il nuovo layout */
 }
+
+/* Nasconde il logo della navbar solo nella homepage */
+body.homepage .logo {
+    display: none;
+}
+
 .logo { display: flex; align-items: center; gap: 10px; }
 .logo img { width: 40px; height: 40px; object-fit: contain; }
 .logo a { font-weight: 400; font-size: 20px; color: var(--dark-color); }
-.nav-links { display: flex; gap: 32px; }
+
+/* MODIFICATO: Posizioniamo i link al centro in modo assoluto */
+.nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center; /* Aggiunto per allineare verticalmente i link e il bottone */
+
+    /* Regole per il centraggio perfetto */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .nav-links a { font-weight: 500; transition: color 0.3s ease; }
 .nav-links a:hover, nav .nav-links a.selected { color: var(--primary-color); }
-#menu-icon { display: none; font-size: 28px; cursor: pointer; color: var(--dark-color); }
+#menu-icon { 
+    display: none; 
+    font-size: 28px; 
+    cursor: pointer; 
+    color: var(--dark-color);
+    margin-left: auto; /* Sposta l'icona hamburger a destra quando appare */
+}
 
 /* --- 4. HERO SECTION (SOLO HOMEPAGE) --- */
 .hero {
@@ -109,7 +135,6 @@ nav .nav-wrapper {
     align-items: center;
     justify-content: center;
     z-index: 2;
-    /* L'animazione non va qui, ma solo nella media query per mobile */
 }
 .hero-image-container img {
     width: 80%;
@@ -124,11 +149,11 @@ section { padding: 100px 0; }
     font-weight: 700;
     text-align: center;
     color: var(--dark-color);
-    margin-top: 100px;
+    margin-top: 100px; 
     margin-bottom: 60px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 800px;
 }
 .card {
     background: #fff;
@@ -200,28 +225,14 @@ section { padding: 100px 0; }
 .list-item .details h3 { font-size: 22px; margin-bottom: 12px; color: var(--dark-color); line-height: 1.4; }
 .list-item .info { font-size: 14px; color: var(--text-color-light); margin-bottom: 15px; }
 .list-item p { color: var(--text-color); line-height: 1.7; }
-.about-section { padding: 80px 0; }
-.about-container {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    margin-bottom: 80px;
-}
-.about-container:nth-child(even) { flex-direction: row-reverse; }
-.about-container img { width: 350px; height: 350px; object-fit: cover; border-radius: 12px; box-shadow: var(--shadow-md); }
-.about-container .about h2 { font-size: 32px; color: var(--dark-color); margin-bottom: 20px; }
-.about-container .about p { text-align: justify; line-height: 1.8; margin-bottom: 15px; }
-.about-container .about .email { font-weight: 500; margin-top: 20px; }
-.about-container .about a { color: var(--primary-color); font-weight: 600; }
 
 /* --- 7. FOOTER E UTILITIES --- */
 footer {
-    padding: 60px 20px 40px 20px;
+    padding-top: 60px;
     background-color: var(--dark-color);
     color: var(--bg-color);
     text-align: center;
 }
-
 .cta-footer {
     text-align: center;
     padding: 60px 20px;
@@ -232,13 +243,11 @@ footer {
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
 }
-
 .cta-footer h2 {
     font-size: 32px;
     color: var(--dark-color);
     margin-bottom: 15px;
 }
-
 .cta-footer p {
     font-size: 16px;
     color: var(--text-color-light);
@@ -246,59 +255,47 @@ footer {
     max-width: 600px;
     margin: 0 auto 30px auto;
 }
-
 .cta-footer .main-button {
     transform: scale(1.05);
 }
-
 .footer-bottom {
-    padding-top: 40px;
+    padding: 40px 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
-
 .socials {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-bottom: 0;
 }
-
 .socials i {
     font-size: 28px;
     transition: color 0.3s ease, transform 0.3s ease;
 }
-
 .socials i:hover {
     color: var(--primary-color);
     transform: scale(1.2);
 }
-
 .footer-bottom p {
     font-size: 14px;
     color: var(--text-color-light);
     margin: 0;
 }
-
 .legal-links {
-    margin-top: 0;
     font-size: 12px;
     display: flex;
     gap: 15px;
 }
-
 .legal-links a {
     color: var(--text-color-light);
     transition: color 0.2s ease;
 }
-
 .legal-links a:hover {
     color: #fff;
 }
-
 .scroll-to-top {
     position: fixed; bottom: 30px; right: 30px;
     width: 50px; height: 50px;
@@ -307,15 +304,14 @@ footer {
     font-size: 24px; box-shadow: var(--shadow-md);
     opacity: 0; visibility: hidden; transition: all 0.3s ease;
 }
-
 .scroll-to-top.visible {
     opacity: 1;
     visibility: visible;
 }
-
 .scroll-to-top:hover {
     transform: translateY(-5px);
 }
+
 /* --- 8. ANIMAZIONI --- */
 .animate-on-load { opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s ease-out forwards; }
 .delay-1 { animation-delay: 0.2s; }
@@ -326,7 +322,10 @@ footer {
 
 /* --- 9. MEDIA QUERIES --- */
 @media screen and (max-width: 992px) {
-    #menu-icon { display: block; }
+    /* RIPORTIAMO I LINK A DESTRA SU MOBILE */
+    .nav-wrapper {
+        justify-content: space-between;
+    }
     .nav-links {
         position: fixed; top: 0; left: -100%;
         width: 100%; height: 100vh;
@@ -335,73 +334,63 @@ footer {
         align-items: center;
         gap: 40px; transition: left 0.4s ease;
         z-index: 999;
+        /* Rimuoviamo il posizionamento assoluto per il menu mobile */
+        position: fixed; 
+        transform: none;
     }
     .nav-links.active { left: 0; }
+    #menu-icon { display: block; }
+    
     .nav-links a { font-size: 24px; }
     .hero { flex-direction: column-reverse; text-align: center; }
     .hero-content h1 { font-size: 42px; }
-
     .hero-image-container {
         margin-bottom: 40px; 
-        /* Attiviamo l'animazione fluttuante solo su mobile */
         animation: floatAnimation 6s ease-in-out infinite;
     }
-
     .hero-image-container img {
         max-width: 280px; 
     }
-
     body::before {
         width: 600px;
         height: 600px;
         opacity: 0.02;
     }
-
     section { padding: 80px 0; }
     .about-container, .about-container:nth-child(even) { flex-direction: column; text-align: center; }
     .about-container .about p { text-align: center; }
 }
 
 @media screen and (max-width: 768px) {
+    /* Nascondiamo il logo SU TUTTE le pagine sotto i 768px */
     .logo { display: none; }
     .list-container { grid-template-columns: 1fr; }
 }
 
 /* --- 10. DEFINIZIONE ANIMAZIONE FLUTTUANTE --- */
 @keyframes floatAnimation {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
 }
 
 /* --- STILI PER IL MODULO DI CONTATTO --- */
 .contact-form {
     max-width: 700px;
-    margin: 40px auto 100px auto; /* Centra il form e dà spazio */
+    margin: 40px auto 100px auto;
     background-color: #fff;
     padding: 40px;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
 }
-
-.form-group {
-    margin-bottom: 25px;
-}
-
+.form-group { margin-bottom: 25px; }
 .form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
     color: var(--dark-color);
 }
-
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -413,27 +402,27 @@ footer {
     color: var(--text-color);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(95, 39, 205, 0.15);
 }
-
 .form-group textarea {
-    resize: vertical; /* Permette all'utente di ridimensionare verticalmente l'area di testo */
+    resize: vertical;
     min-height: 150px;
 }
-
 .contact-form .main-button {
     width: 100%;
     text-align: center;
-    padding: 16px; /* Un po' più grande per importanza */
+    padding: 16px;
     font-size: 18px;
 }
 
-/* Stili per le card dei fondatori */
+/* --- Stili aggiuntivi per pagina Chi Siamo --- */
+.founders-section {
+    padding-bottom: 100px;
+}
 .founder-card {
     background: #fff;
     padding: 30px;
@@ -468,13 +457,53 @@ footer {
     color: var(--text-color-light);
     line-height: 1.7;
     margin-bottom: 20px;
-    flex-grow: 1; /* Fa in modo che il testo occupi lo spazio disponibile */
+    flex-grow: 1;
 }
 .founder-card .email a {
     font-weight: 600;
     color: var(--dark-color);
 }
-/* --- Stili aggiuntivi per pagina Chi Siamo --- */
-.founders-section {
-    padding-bottom: 100px; /* Aumenta lo spazio tra la sezione fondatori e il footer */
+
+/* --- Stile per il link speciale "Contattaci" --- */
+.contact-link-special {
+    background-color: rgba(95, 39, 205, 0.1);
+    color: var(--primary-color) !important;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    animation: pulse-animation 2.5s ease-in-out infinite;
 }
+.contact-link-special:hover {
+    background-color: rgba(95, 39, 205, 0.2);
+}
+
+/* Definiamo l'animazione del "pulse" */
+@keyframes pulse-animation {
+  0% { box-shadow: 0 0 0 0 rgba(95, 39, 205, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(95, 39, 205, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(95, 39, 205, 0); }
+}
+/* Stile per il nuovo link del logo unificato */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--dark-color);
+}
+
+/* Stile per il nuovo titolo del brand nella Hero Section */
+.hero-brand-title {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+/* Aggiustiamo il delay delle altre animazioni */
+.hero .delay-1 { animation-delay: 0.2s; }
+.hero .delay-2 { animation-delay: 0.4s; }
+.hero .delay-3 { animation-delay: 0.6s; }
+
