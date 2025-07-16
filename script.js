@@ -31,18 +31,6 @@ if (animatedElements.length > 0) {
 }
 
 
-// --- LOGICA LOGO FLUTTUANTE ---
-const heroLogo = document.getElementById('hero-logo');
-if (heroLogo) {
-    document.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        const x = (clientX / window.innerWidth - 0.5) * -40;
-        const y = (clientY / window.innerHeight - 0.5) * -40;
-        
-        heroLogo.style.transform = `translate(${x}px, ${y}px)`;
-    });
-}
-
 // --- LOGICA PULSANTE SCROLL-TO-TOP ---
 const scrollToTopBtn = document.querySelector('.scroll-to-top');
 if (scrollToTopBtn) {
@@ -53,4 +41,23 @@ if (scrollToTopBtn) {
             scrollToTopBtn.classList.remove('visible');
         }
     });
+}
+
+
+// --- LOGICA EFFETTO 3D DEL LOGO (SOLO SU DESKTOP) ---
+// Controlliamo la larghezza dello schermo all'avvio
+if (window.innerWidth > 992) {
+    const logo = document.getElementById('hero-logo');
+    if (logo) {
+        // Se lo schermo è più grande di 992px, attiviamo l'effetto del mouse
+        document.addEventListener('mousemove', function(e) {
+            // Calcoliamo la posizione del mouse rispetto al centro dello schermo
+            let x = (window.innerWidth / 2 - e.clientX) / 25; // Divisore più grande per un effetto più sottile
+            let y = (window.innerHeight / 2 - e.clientY) / 25;
+    
+            // Applichiamo la trasformazione per l'effetto 3D
+            logo.style.transform = `rotateY(${-x}deg) rotateX(${y}deg)`;
+            logo.style.transition = 'transform 0.1s ease-out'; // Aggiungiamo una transizione per fluidità
+        });
+    }
 }
