@@ -44,7 +44,7 @@ body::before {
 
 a { text-decoration: none; color: inherit; }
 img { width: 100%; display: block; }
-.container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
 
 
 /* --- 3. NAVBAR --- */
@@ -220,7 +220,14 @@ section { padding: 100px 0; }
     box-shadow: var(--shadow-md);
     border-color: var(--primary-color); 
 }
-.list-item img { height: 250px; object-fit: cover; }
+.list-item img {
+    width: 100%; 
+    aspect-ratio: 1 / 1; 
+    
+    object-fit: contain; 
+    background-color: var(--background-light, #f8f9fa); 
+    padding: 40px; 
+}
 .list-item .details { padding: 24px; }
 .list-item .details h3 { font-size: 22px; margin-bottom: 12px; color: var(--dark-color); line-height: 1.4; }
 .list-item .info { font-size: 14px; color: var(--text-color-light); margin-bottom: 15px; }
