@@ -46,91 +46,107 @@ img { width: 100%; display: block; }
 .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
 
 
-/* --- 2. GESTIONE CARD (HOME vs WORKS) --- */
+/* --- 2. GESTIONE INTELLIGENTE DELLE CARD (HOME vs WORKS) --- */
 
-.featured-section {
-    padding: 40px 0;
-    text-align: center;
-}
-
-.featured-section .list-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding-bottom: 40px;
-}
-
-/* --- STILE BASE (Uguale per tutti) --- */
-/* Questo definisce i colori, l'ombra e il bordo, MA NON LA GRANDEZZA */
+/* --- A. STILE BASE (Comune a tutte le card) --- */
 .work-card {
-    display: block;
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Ombra morbida */
     overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s ease;
     margin: 0 auto;
+    display: block;
 }
 
-.work-card:hover {
-    transform: scale(1.02);
-}
-
-/* --- VERSIONE PICCOLA (Solo per la HOME) --- */
-/* La classe .featured-section c'è solo in home, quindi questo agisce solo lì */
+/* --- B. VERSIONE HOME (PICCOLA) --- */
+/* Questa regola si attiva SOLO se la card è dentro .featured-section */
 .featured-section .work-card {
-    width: 100%;
-    max-width: 350px !important; /* BLOCCATO PICCOLO */
+    max-width: 350px !important; /* Forza la dimensione piccola */
+    transition: transform 0.3s ease;
+}
+
+.featured-section .work-card:hover {
+    transform: scale(1.05); /* Zoom solo in home */
 }
 
 .featured-section .card-image-wrapper {
     height: 220px;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.featured-section .card-image-wrapper img {
+.featured-section img {
     max-height: 100%;
     width: auto;
+    object-fit: contain;
 }
 
-/* --- VERSIONE GRANDE (Per la pagina WORKS) --- */
-/* Qui diciamo: se NON sei nella home, diventa grande */
-.work-details-container .work-card,
-main:not(.homepage) .work-card {
-    max-width: 900px !important; /* LARGO PER LEGGERE BENE */
+/* --- C. VERSIONE WORKS/DETTAGLI (GRANDE) --- */
+/* Questa regola si attiva SOLO se la card è dentro .work-details-container */
+.work-details-container .work-card {
+    max-width: 1000px !important; /* LARGHEZZA MASSIMA GRANDE */
     width: 100%;
+    box-shadow: none; /* Rimuoviamo l'ombra per un look più pulito in pagina interna */
+    background: transparent; /* Si fonde con lo sfondo */
 }
 
-.work-details-container .card-image-wrapper img {
+.work-details-container .card-image-wrapper {
     width: 100%;
     height: auto;
-    max-height: 500px;
-    object-fit: cover;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* L'ombra la mettiamo all'immagine */
 }
 
-/* Dettagli testo */
-.card-details {
-    padding: 30px; /* Un po' più di spazio per il testo lungo */
-    text-align: left; /* Allineato a sinistra per leggere meglio */
+.work-details-container img {
+    width: 100%;
+    height: auto;
+    max-height: 600px; /* Altezza massima per non esagerare */
+    object-fit: cover; /* Riempie bene lo spazio */
+    display: block;
 }
 
-.card-details h3 {
-    font-size: 1.8rem; /* Titolo più grande nella pagina dettagli */
+/* --- D. TESTI PAGINA WORKS --- */
+/* Miglioriamo la leggibilità del testo lungo */
+.work-details-container .card-details {
+    padding: 0 20px;
+    text-align: left; /* Testo allineato a sinistra */
+    max-width: 800px;
+    margin: 0 auto; /* Centra il blocco di testo */
+}
+
+.work-details-container h3 {
+    font-size: 2.5rem; /* Titolo grande */
     font-weight: 700;
-    margin-bottom: 20px;
     color: var(--dark-color);
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.card-details ul {
-    margin: 20px 0;
-    padding-left: 20px;
+.work-details-container p {
+    font-size: 1.1rem;
+    line-height: 1.8; /* Più spazio tra le righe per leggere meglio */
+    color: var(--text-color);
+    margin-bottom: 20px;
 }
 
-.card-details li {
+.work-details-container ul {
+    margin: 30px 0;
+    padding-left: 20px;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.work-details-container li {
     margin-bottom: 10px;
-    color: var(--text-color);
+    list-style-type: disc;
+    color: var(--dark-color);
 }
 
 /* --- 3. NAVBAR --- */
