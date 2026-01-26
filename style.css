@@ -581,3 +581,33 @@ footer {
     margin: 0;
     color: var(--dark-color);
 }
+
+/* --- FIX DI EMERGENZA PER L'IMMAGINE GIGANTE --- */
+
+/* 1. Forza il contenitore (la card) a non superare i 350 pixel */
+.featured-section .list-container a, 
+.work-card, 
+.list-item {
+    max-width: 350px !important; /* Blocca la larghezza */
+    width: 100% !important;
+    margin: 0 auto !important;   /* Centra la card */
+    display: block !important;
+}
+
+/* 2. Forza l'immagine a stare dentro il contenitore */
+.featured-section img,
+.work-card img, 
+.list-item img {
+    max-height: 250px !important; /* Altezza massima fissa */
+    width: auto !important;       /* La larghezza si adatta all'altezza */
+    max-width: 100% !important;   /* Non può uscire dalla card */
+    object-fit: contain !important;
+}
+
+/* 3. Assicura che il contenitore dell'immagine non sia gigante */
+.card-image-wrapper, 
+.list-item div:first-child {
+    height: auto !important;
+    min-height: 200px;
+    padding: 20px !important;
+}
