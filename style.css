@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    /* La tua palette colori! */
+    /* Palette colori */
     --primary-color: #5f27cd;
     --bg-color: #f8f9fa;
     --dark-color: #1d1d1f;
@@ -13,7 +13,7 @@
     --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* --- 2. RESET E STILI BASE --- */
+/* --- 1. RESET E STILI BASE --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -46,6 +46,74 @@ img { width: 100%; display: block; }
 .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
 
 
+/* --- 2. CARD LAVORI IN EVIDENZA (SPOSTATO QUI PER SICUREZZA) --- */
+/* Le metto qui in alto così il browser le legge sicuramente! */
+
+.featured-section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.featured-section .list-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+/* IL "RIQUADRINO" */
+.work-card {
+    display: block;
+    background-color: #fff; /* Sfondo bianco fondamentale */
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Ombra */
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+    
+    /* DIMENSIONI OBBLIGATORIE */
+    width: 100%;
+    max-width: 350px !important; /* Blocca la larghezza a 350px */
+    margin: 0 auto;
+}
+
+.work-card:hover {
+    transform: scale(1.05);
+}
+
+/* CONTENITORE IMMAGINE */
+.card-image-wrapper {
+    height: 220px;
+    background-color: #f9fafb; /* Grigio chiaro dietro il logo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* IMMAGINE DENTRO LA CARD */
+.card-image-wrapper img {
+    max-height: 100% !important; /* Non può essere più alta del contenitore */
+    width: auto !important;      /* La larghezza si adatta */
+    max-width: 100%;             /* Non esce dai bordi */
+    object-fit: contain;
+}
+
+.card-details {
+    padding: 24px;
+    text-align: center;
+}
+
+.card-details h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--dark-color);
+}
+
+
 /* --- 3. NAVBAR --- */
 nav {
     padding: 20px 0;
@@ -57,29 +125,21 @@ nav {
     z-index: 1000;
 }
 
-/* MODIFICATO: Aggiunto position: relative per il centraggio assoluto dei link */
 nav .nav-wrapper {
     display: flex;
     align-items: center;
-    position: relative; /* Fondamentale per il nuovo layout */
+    position: relative; 
 }
 
-/* Nasconde il logo della navbar solo nella homepage */
-body.homepage .logo {
-    display: none;
-}
-
+body.homepage .logo { display: none; }
 .logo { display: flex; align-items: center; gap: 10px; }
 .logo img { width: 40px; height: 40px; object-fit: contain; }
-.logo a { font-weight: 400; font-size: 20px; color: var(--dark-color); }
+.logo-link { display: flex; align-items: center; gap: 10px; font-weight: 400; font-size: 20px; color: var(--dark-color); }
 
-/* MODIFICATO: Posizioniamo i link al centro in modo assoluto */
 .nav-links {
     display: flex;
     gap: 32px;
-    align-items: center; /* Aggiunto per allineare verticalmente i link e il bottone */
-
-    /* Regole per il centraggio perfetto */
+    align-items: center; 
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -92,16 +152,17 @@ body.homepage .logo {
     font-size: 28px; 
     cursor: pointer; 
     color: var(--dark-color);
-    margin-left: auto; /* Sposta l'icona hamburger a destra quando appare */
+    margin-left: auto; 
 }
 
-/* --- 4. HERO SECTION (SOLO HOMEPAGE) --- */
+/* --- 4. HERO SECTION --- */
 .hero {
     min-height: 90vh;
     display: flex;
     align-items: center;
 }
 .hero-content { flex: 1; max-width: 600px; z-index: 1; }
+.hero-brand-title { color: var(--primary-color); font-size: 20px; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
 .hero-content h1 {
     font-size: 56px;
     font-weight: 700;
@@ -141,7 +202,7 @@ body.homepage .logo {
     object-fit: contain;
 }
 
-/* --- 5. SEZIONI GENERICHE E CARD --- */
+/* --- 5. SEZIONI GENERICHE E ALTRE CARD --- */
 section { padding: 100px 0; }
 .section-title {
     font-size: 36px;
@@ -153,6 +214,11 @@ section { padding: 100px 0; }
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 .card {
     background: #fff;
@@ -168,38 +234,12 @@ section { padding: 100px 0; }
     box-shadow: var(--shadow-md);
     border-color: var(--primary-color); 
 }
-.card i {
-    font-size: 48px;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    display: block;
-}
+.card i { font-size: 48px; color: var(--primary-color); margin-bottom: 20px; display: block; }
 .card h3 { font-size: 22px; margin-bottom: 15px; color: var(--dark-color); }
 .card p { color: var(--text-color-light); line-height: 1.6; }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
 
-/* --- 6. STILI PAGINE INTERNE --- */
-.page-header {
-    padding: 80px 0;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(95, 39, 205, 0.05), rgba(248, 249, 250, 1));
-}
-.page-title {
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--dark-color);
-}
-.page-subtitle {
-    font-size: 18px;
-    color: var(--text-color-light);
-    max-width: 600px;
-    margin: 10px auto 0;
-}
+/* --- 6. LISTE (Pagine interne) --- */
 .list-container {
     padding: 80px 0;
     display: grid;
@@ -212,27 +252,15 @@ section { padding: 100px 0; }
     box-shadow: var(--shadow-sm);
     overflow: hidden;
     border: 2px solid transparent; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
-.list-item:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary-color); 
-}
-.list-item img {
-    width: 100%; 
-    aspect-ratio: 1 / 1; 
-    
-    object-fit: contain; 
-    background-color: var(--background-light, #f8f9fa); 
-    padding: 40px; 
-}
+.list-item:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+.list-item img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background-color: #f8f9fa; padding: 40px; }
 .list-item .details { padding: 24px; }
-.list-item .details h3 { font-size: 22px; margin-bottom: 12px; color: var(--dark-color); line-height: 1.4; }
-.list-item .info { font-size: 14px; color: var(--text-color-light); margin-bottom: 15px; }
-.list-item p { color: var(--text-color); line-height: 1.7; }
+.list-item h3 { font-size: 22px; margin-bottom: 12px; color: var(--dark-color); }
 
-/* --- 7. FOOTER E UTILITIES --- */
+
+/* --- 7. FOOTER --- */
 footer {
     padding-top: 60px;
     background-color: var(--dark-color);
@@ -249,59 +277,31 @@ footer {
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
 }
-.cta-footer h2 {
-    font-size: 32px;
-    color: var(--dark-color);
-    margin-bottom: 15px;
+.cta-footer h2 { font-size: 32px; color: var(--dark-color); margin-bottom: 15px; }
+.cta-footer p { font-size: 16px; color: var(--text-color-light); max-width: 600px; margin: 0 auto 30px auto; }
+.footer-bottom { padding: 40px 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.socials { display: flex; justify-content: center; gap: 30px; }
+.socials i { font-size: 28px; transition: color 0.3s ease; }
+.socials i:hover { color: var(--primary-color); }
+.legal-links { font-size: 12px; display: flex; gap: 15px; }
+.legal-links a { color: var(--text-color-light); }
+.legal-links a:hover { color: #fff; }
+
+/* Contact Link Special */
+.contact-link-special {
+    background-color: rgba(95, 39, 205, 0.1);
+    color: var(--primary-color) !important;
+    padding: 8px 16px;
+    border-radius: 50px;
+    animation: pulse-animation 2.5s ease-in-out infinite;
 }
-.cta-footer p {
-    font-size: 16px;
-    color: var(--text-color-light);
-    line-height: 1.7;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
+@keyframes pulse-animation {
+  0% { box-shadow: 0 0 0 0 rgba(95, 39, 205, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(95, 39, 205, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(95, 39, 205, 0); }
 }
-.cta-footer .main-button {
-    transform: scale(1.05);
-}
-.footer-bottom {
-    padding: 40px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-.socials {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-.socials i {
-    font-size: 28px;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-.socials i:hover {
-    color: var(--primary-color);
-    transform: scale(1.2);
-}
-.footer-bottom p {
-    font-size: 14px;
-    color: var(--text-color-light);
-    margin: 0;
-}
-.legal-links {
-    font-size: 12px;
-    display: flex;
-    gap: 15px;
-}
-.legal-links a {
-    color: var(--text-color-light);
-    transition: color 0.2s ease;
-}
-.legal-links a:hover {
-    color: #fff;
-}
+
+/* Scroll to top */
 .scroll-to-top {
     position: fixed; bottom: 30px; right: 30px;
     width: 50px; height: 50px;
@@ -310,28 +310,25 @@ footer {
     font-size: 24px; box-shadow: var(--shadow-md);
     opacity: 0; visibility: hidden; transition: all 0.3s ease;
 }
-.scroll-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-.scroll-to-top:hover {
-    transform: translateY(-5px);
-}
+.scroll-to-top.visible { opacity: 1; visibility: visible; }
 
 /* --- 8. ANIMAZIONI --- */
 .animate-on-load { opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s ease-out forwards; }
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
 @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
 .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
 .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+@keyframes floatAnimation {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
 
-/* --- 9. MEDIA QUERIES --- */
+/* --- 9. MEDIA QUERIES (Sempre in fondo!) --- */
 @media screen and (max-width: 992px) {
-    /* RIPORTIAMO I LINK A DESTRA SU MOBILE */
-    .nav-wrapper {
-        justify-content: space-between;
-    }
+    .nav-wrapper { justify-content: space-between; }
     .nav-links {
         position: fixed; top: 0; left: -100%;
         width: 100%; height: 100vh;
@@ -340,274 +337,20 @@ footer {
         align-items: center;
         gap: 40px; transition: left 0.4s ease;
         z-index: 999;
-        /* Rimuoviamo il posizionamento assoluto per il menu mobile */
-        position: fixed; 
         transform: none;
     }
     .nav-links.active { left: 0; }
     #menu-icon { display: block; }
-    
     .nav-links a { font-size: 24px; }
     .hero { flex-direction: column-reverse; text-align: center; }
     .hero-content h1 { font-size: 42px; }
-    .hero-image-container {
-        margin-bottom: 40px; 
-        animation: floatAnimation 6s ease-in-out infinite;
-    }
-    .hero-image-container img {
-        max-width: 280px; 
-    }
-    body::before {
-        width: 600px;
-        height: 600px;
-        opacity: 0.02;
-    }
+    .hero-image-container { margin-bottom: 40px; animation: floatAnimation 6s ease-in-out infinite; }
+    .hero-image-container img { max-width: 280px; }
+    body::before { width: 600px; height: 600px; opacity: 0.02; }
     section { padding: 80px 0; }
-    .about-container, .about-container:nth-child(even) { flex-direction: column; text-align: center; }
-    .about-container .about p { text-align: center; }
 }
 
 @media screen and (max-width: 768px) {
-    /* Nascondiamo il logo SU TUTTE le pagine sotto i 768px */
     .logo { display: none; }
     .list-container { grid-template-columns: 1fr; }
-}
-
-/* --- 10. DEFINIZIONE ANIMAZIONE FLUTTUANTE --- */
-@keyframes floatAnimation {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
-}
-
-/* --- STILI PER IL MODULO DI CONTATTO --- */
-.contact-form {
-    max-width: 700px;
-    margin: 40px auto 100px auto;
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-color);
-}
-.form-group { margin-bottom: 25px; }
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--dark-color);
-}
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-family: var(--font-main);
-    font-size: 16px;
-    color: var(--text-color);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(95, 39, 205, 0.15);
-}
-.form-group textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-.contact-form .main-button {
-    width: 100%;
-    text-align: center;
-    padding: 16px;
-    font-size: 18px;
-}
-
-/* --- Stili aggiuntivi per pagina Chi Siamo --- */
-.founders-section {
-    padding-bottom: 100px;
-}
-.founder-card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.founder-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 20px auto;
-    border: 4px solid var(--primary-color);
-}
-.founder-card h3 {
-    font-size: 24px;
-    color: var(--dark-color);
-    margin-bottom: 5px;
-}
-.founder-card h4 {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-.founder-card p {
-    color: var(--text-color-light);
-    line-height: 1.7;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-.founder-card .email a {
-    font-weight: 600;
-    color: var(--dark-color);
-}
-
-/* --- Stile per il link speciale "Contattaci" --- */
-.contact-link-special {
-    background-color: rgba(95, 39, 205, 0.1);
-    color: var(--primary-color) !important;
-    padding: 8px 16px;
-    border-radius: 50px;
-    transition: background-color 0.3s ease;
-    animation: pulse-animation 2.5s ease-in-out infinite;
-}
-.contact-link-special:hover {
-    background-color: rgba(95, 39, 205, 0.2);
-}
-
-/* Definiamo l'animazione del "pulse" */
-@keyframes pulse-animation {
-  0% { box-shadow: 0 0 0 0 rgba(95, 39, 205, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(95, 39, 205, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(95, 39, 205, 0); }
-}
-/* Stile per il nuovo link del logo unificato */
-.logo-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 400;
-    font-size: 20px;
-    color: var(--dark-color);
-}
-
-/* Stile per il nuovo titolo del brand nella Hero Section */
-.hero-brand-title {
-    color: var(--primary-color);
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-}
-
-/* Aggiustiamo il delay delle altre animazioni */
-.hero .delay-1 { animation-delay: 0.2s; }
-.hero .delay-2 { animation-delay: 0.4s; }
-.hero .delay-3 { animation-delay: 0.6s; }
-
-
-/* --- 11. MODIFICA CARD LAVORI IN EVIDENZA (AGGIUNTO ORA) --- */
-/* Questa sezione sostituisce le classi di Tailwind che non funzionavano */
-
-.featured-section {
-    padding: 40px 0;
-    text-align: center;
-}
-
-/* Specifico per la sezione Featured: usa Flex per centrare invece di Grid */
-.featured-section .list-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    grid-template-columns: none; /* Disabilita il grid ereditato */
-    padding-bottom: 40px;
-}
-
-/* Stile della Card */
-.work-card {
-    display: block;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s ease;
-    
-    /* Ridimensionamento fondamentale */
-    width: 100%;
-    max-width: 350px; 
-    margin: 0 auto;
-}
-
-.work-card:hover {
-    transform: scale(1.05);
-}
-
-/* Stile Immagine */
-.card-image-wrapper {
-    height: 220px;
-    background-color: #f9fafb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.card-image-wrapper img {
-    max-height: 100%;
-    width: auto;
-    object-fit: contain;
-}
-
-/* Dettagli testo */
-.card-details {
-    padding: 24px;
-    text-align: center;
-}
-
-.card-details h3 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    margin: 0;
-    color: var(--dark-color);
-}
-
-/* --- FIX DI EMERGENZA PER L'IMMAGINE GIGANTE --- */
-
-/* 1. Forza il contenitore (la card) a non superare i 350 pixel */
-.featured-section .list-container a, 
-.work-card, 
-.list-item {
-    max-width: 350px !important; /* Blocca la larghezza */
-    width: 100% !important;
-    margin: 0 auto !important;   /* Centra la card */
-    display: block !important;
-}
-
-/* 2. Forza l'immagine a stare dentro il contenitore */
-.featured-section img,
-.work-card img, 
-.list-item img {
-    max-height: 250px !important; /* Altezza massima fissa */
-    width: auto !important;       /* La larghezza si adatta all'altezza */
-    max-width: 100% !important;   /* Non può uscire dalla card */
-    object-fit: contain !important;
-}
-
-/* 3. Assicura che il contenitore dell'immagine non sia gigante */
-.card-image-wrapper, 
-.list-item div:first-child {
-    height: auto !important;
-    min-height: 200px;
-    padding: 20px !important;
 }
